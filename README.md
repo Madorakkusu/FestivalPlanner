@@ -9,7 +9,6 @@ In the folder of the repo execute :
 ```
 > npm install -g yarn
 > yarn
-
 ``` 
 
 Then just launch the dev server using : 
