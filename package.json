@@ -1,28 +1,34 @@
 {
-  "name": "FestivalPlanner",
-  "version": "0.0.1",
+  "name": "festivals_planner_app",
+  "version": "0.1.0",
+  "description": "Festival Planner application",
+  "main": "index.js",
   "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "lint": "eslint .",
-    "android-windows": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android"
-  },
   "dependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "2.1.8"
   },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/runtime": "^7.4.2",
-    "@react-native-community/eslint-config": "^0.0.3",
-    "babel-jest": "^24.5.0",
-    "eslint": "^5.16.0",
-    "jest": "^24.5.0",
-    "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
-  },
-  "jest": {
-    "preset": "react-native"
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "prettier": "1.16.4",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }
