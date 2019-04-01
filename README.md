@@ -18,3 +18,11 @@ Then just launch the dev server using :
 ```
 
 Then it will serve on `http://localhost:3000`
+
+## Commands
+
+We have setup prettier so we have our code conventions, you can format your code using this command :
+
+```
+> yarn format
+```
