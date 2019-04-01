@@ -12,7 +12,7 @@
     "no-default-export": true,
     "no-boolean-literal-compare": false,
     "function-name": false,
-    "no-unused-variable": false,
+    "no-unused-variable": true,
     "triple-equals": false
   },
   "linterOptions": {

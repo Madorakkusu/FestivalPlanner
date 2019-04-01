@@ -18,12 +18,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": false,
-    "noEmitOnError": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "baseUrl": ".",
     "jsx": "preserve",
+    "noEmitOnError": true,
     "paths": {
       "@root/*": ["./*"]
     }

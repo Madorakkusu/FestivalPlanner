@@ -1,5 +1,6 @@
 {
   "name": "festivals_planner_app",
+  "description": "Festival Planner Application",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,7 +18,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base src --hot --inline",
     "build": "webpack -p",
-    "format": "prettier --write \"./src/{*.js,*.ts,*.tsx,*.scss}\""
+    "build:watch": "webpack -p --watch",
+    "format": "prettier --write \"./src/**/{*.js,*.ts,*.tsx,*.scss}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +41,9 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
