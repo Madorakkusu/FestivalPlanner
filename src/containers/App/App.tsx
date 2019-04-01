@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import './App.scss';
 
 export class App extends Component<any, any> {
   constructor(props) {
     super(props);
-    console.log('true');
   }
 
   render() {
