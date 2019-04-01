@@ -5,7 +5,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: '../src/index.ts',
+    entry: '../src/index.tsx',
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: 'FestivalPlanner.js',
