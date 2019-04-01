@@ -1,12 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: '../src/index.ts',
     output: {
-        path: path.join(__dirname, '../dist'),
+        path: path.resolve(__dirname, "../dist"),
+        filename: 'FestivalPlanner.js',
     },
     resolve: {
         modules: ['modules', 'node_modules'],
@@ -59,5 +61,8 @@ module.exports = {
                 loader: ['babel-loader', 'ts-loader'],
             },
         ]
-    }
+    },
+    plugins: [
+      new HtmlWebpackPlugin({ template: './src/index.html' }),
+    ]
 };
