@@ -26,3 +26,9 @@ We have setup prettier so we have our code conventions, you can format your code
 ```
 > yarn format
 ```
+
+To build for production use :
+
+```
+> yarn build
+```
