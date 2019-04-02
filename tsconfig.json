@@ -24,7 +24,7 @@
     "jsx": "preserve",
     "noEmitOnError": true,
     "paths": {
-      "@root/*": ["./*"]
+      "@modules/*": ["./src/modules"]
     }
   },
   "include": [

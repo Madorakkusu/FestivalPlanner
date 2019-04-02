@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
+import { LandingPage } from '../LandingPage';
 
 export class App extends Component<any, any> {
   constructor(props) {
@@ -8,6 +9,14 @@ export class App extends Component<any, any> {
   }
 
   render() {
-    return <h1>Bienvenue sur l'application Festival Planner</h1>;
+    return (
+      <div id="app" className="app">
+        <BrowserRouter>
+          <Switch>
+            <Route component={LandingPage} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
   }
 }
