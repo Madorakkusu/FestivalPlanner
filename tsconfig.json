@@ -24,7 +24,8 @@
     "jsx": "preserve",
     "noEmitOnError": true,
     "paths": {
-      "@modules/*": ["./src/modules"]
+      "@modules/*": ["./src/modules/*"],
+      "@helpers/*": ["./src/helpers/*"]
     }
   },
   "include": [
