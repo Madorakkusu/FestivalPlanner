@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { OrbitalStation } from '@helpers/OrbitalStation';
 
+import './LandingPage.scss';
+
 export type LoginState = {
   username: string;
   password: string;
@@ -41,11 +43,25 @@ export class LandingPage extends Component<any, LoginState> {
 
   render() {
     return (
-      <>
-        <input name={'username'} onChange={this.usernameHandler} />
-        <input name={'password'} onChange={this.passwordHandler} />
-        <button onClick={this.loginHandler}>Login</button>
-      </>
+      <div className={'landingPage'}>
+        <h1 className={'title'}>Festival Planner</h1>
+        <input
+          className={'input is-medium'}
+          name={'username'}
+          placeholder={'Account'}
+          onChange={this.usernameHandler}
+        />
+        <input
+          className={'input is-medium'}
+          name={'password'}
+          placeholder={'Password'}
+          type={'password'}
+          onChange={this.passwordHandler}
+        />
+        <button className={'button is-black'} onClick={this.loginHandler}>
+          Login
+        </button>
+      </div>
     );
   }
 }
