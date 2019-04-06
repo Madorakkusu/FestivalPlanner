@@ -8,7 +8,6 @@ import './LoginPage.scss';
 type LoginState = {
   username: string;
   password: string;
-  redirect: boolean;
 };
 
 type StateProps = {
@@ -28,7 +27,6 @@ class LoginPageClass extends Component<LoginPageProps, LoginState> {
     this.state = {
       username: '',
       password: '',
-      redirect: false,
     };
   }
 
@@ -54,7 +52,6 @@ class LoginPageClass extends Component<LoginPageProps, LoginState> {
 
   render() {
     const { token } = this.props;
-    const { redirect } = this.state;
 
     if (token) {
       return <Redirect to="/festivals" />;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ThunkDispatch } from 'redux-thunk';
-import { AXIOS_LOGIN_CONFIG, AXIOS_LOGGED_CONFIG, BASE_URL } from '@helpers/OrbitalStation';
+import { AXIOS_LOGIN_CONFIG, BASE_URL } from '@helpers/OrbitalStation';
 import { saveToken } from '@modules/LoginPage/redux/actions';
 import { storeFestivals } from '@modules/Festivals/redux/actions';
 
@@ -25,9 +25,15 @@ export const login = (username: string, password: string) => (dispatch: ThunkDis
  * Get all the festivals
  * @param token string
  */
-export const getFestivals = (token: string) => (dispatch: ThunkDispatch<any, any, any>) => {
+export const getFestivals = ({ token }) => (dispatch: ThunkDispatch<any, any, any>) => {
+  const config = {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  };
+
   axios
-    .get(`${BASE_URL}/api/festivals/`, AXIOS_LOGGED_CONFIG(token))
+    .get(`${BASE_URL}/api/festivals/`, config)
     .then(response => {
       console.log(response.data);
       dispatch(storeFestivals(response.data));

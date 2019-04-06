@@ -14,8 +14,9 @@ export class App extends Component<any, any> {
     return (
       <div id="app" className="app">
         <Router>
-          <Route path="/" component={LoginPage} />
-          <Route path="/festivals/" component={Festivals} />
+          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/festivals/" component={Festivals} />
+          <Route exact path="/festivals/:id/" component={Festivals} />
         </Router>
       </div>
     );

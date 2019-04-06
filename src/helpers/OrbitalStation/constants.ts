@@ -5,11 +5,3 @@ export const AXIOS_LOGIN_CONFIG = {
     'Content-Type': 'application/json',
   },
 };
-
-export const AXIOS_LOGGED_CONFIG = (token: string) => {
-  return {
-    headers: {
-      Authorization: `token ${token}`,
-    },
-  };
-};

@@ -10,6 +10,7 @@ type DispatchProps = {
 
 type StateProps = {
   token: string;
+  festivals: any;
 };
 
 type FestivalProps = DispatchProps & StateProps;
@@ -25,16 +26,27 @@ class FestivalsClass extends Component<FestivalProps, any> {
   }
 
   render() {
-    return <h1>Festivals</h1>;
+    const { festivals } = this.props;
+    if (!festivals) return null;
+
+    return (
+      <>
+        <h1 className={'title'}>Festivals</h1>
+        {festivals.map(festival => {
+          return <p key={festival.name}>{festival.name}</p>;
+        })}
+      </>
+    );
   }
 }
 
 const mapStateToProps = (state: any) => ({
   token: state.loginPage.token,
+  festivals: state.festivals.festivals,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getFestivals: (token: string) => dispatch(getFestivals(token)),
+  getFestivals: (token: any) => dispatch(getFestivals(token)),
 });
 
 export const Festivals = connect(
