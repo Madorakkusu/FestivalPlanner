@@ -1,5 +1,5 @@
 import React, { Component, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '@helpers/OrbitalStation';
 
@@ -8,25 +8,29 @@ import './LoginPage.scss';
 type LoginState = {
   username: string;
   password: string;
+  redirect: boolean;
+};
+
+type StateProps = {
+  token: string;
 };
 
 type DispatchProps = {
   login: (username: string, password: string) => void;
 };
 
-type LoginPageProps = DispatchProps;
+type LoginPageProps = DispatchProps & StateProps;
 
-export class LoginPageClass extends Component<LoginPageProps, LoginState> {
+class LoginPageClass extends Component<LoginPageProps, LoginState> {
   constructor(props) {
     super(props);
 
     this.state = {
       username: '',
       password: '',
+      redirect: false,
     };
   }
-
-  componentDidMount() {}
 
   loginHandler = () => {
     const { username, password } = this.state;
@@ -49,8 +53,15 @@ export class LoginPageClass extends Component<LoginPageProps, LoginState> {
   };
 
   render() {
+    const { token } = this.props;
+    const { redirect } = this.state;
+
+    if (token) {
+      return <Redirect to="/festivals" />;
+    }
+
     return (
-      <div className={'landingPage'}>
+      <div className={'loginPage'}>
         <h1 className={'title'}>Festival Planner</h1>
         <input
           className={'input is-medium'}
@@ -73,11 +84,15 @@ export class LoginPageClass extends Component<LoginPageProps, LoginState> {
   }
 }
 
+const mapStateToProps = (state: any): StateProps => ({
+  token: state.loginPage.token,
+});
+
 const mapDispatchToProps = (dispatch: any) => ({
   login: (username: string, password: string) => dispatch(login(username, password)),
 });
 
 export const LoginPage = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(LoginPageClass);

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { loginPageReducer } from '../LoginPage/redux/reducer';
+import { loginPage } from '@modules/LoginPage/redux/reducer';
+import { festivals } from '@modules/Festivals/redux/reducer';
 
 export const AppReducer = combineReducers({
-  loginPageReducer,
+  loginPage,
+  festivals,
 });
