@@ -30,12 +30,18 @@ class FestivalsClass extends Component<FestivalProps, any> {
     if (!festivals) return null;
 
     return (
-      <>
+      <div className={'festivalsContainer'}>
         <h1 className={'title'}>Festivals</h1>
-        {festivals.map(festival => {
-          return <p key={festival.name}>{festival.name}</p>;
-        })}
-      </>
+        <div className={'festival-list'}>
+          {festivals.map(festival => {
+            return (
+              <p className={'festival'} key={festival.name}>
+                {festival.name}
+              </p>
+            );
+          })}
+        </div>
+      </div>
     );
   }
 }

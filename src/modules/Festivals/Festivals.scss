@@ -1,0 +1,18 @@
+@import 'bulma';
+
+.festivalsContainer {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  background: $grey-darker;
+  flex-direction: column;
+  height: 100%;
+
+  h1 {
+    color: $white;
+  }
+
+  p {
+    color: $white;
+  }
+}
