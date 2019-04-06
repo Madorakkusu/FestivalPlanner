@@ -34,9 +34,19 @@ export const getFestivals = ({ token }) => (dispatch: ThunkDispatch<any, any, an
 
   axios
     .get(`${BASE_URL}/api/festivals/`, config)
-    .then(response => {
-      console.log(response.data);
-      dispatch(storeFestivals(response.data));
-    })
+    .then(response => dispatch(storeFestivals(response.data)))
+    .catch(errormsg => console.log(errormsg));
+};
+
+export const gesFestivalById = (id: number, token) => (dispatch: ThunkDispatch<any, any, any>) => {
+  const config = {
+    headers: {
+      Authorization: `Token ${token}`,
+    },
+  };
+
+  axios
+    .get(`${BASE_URL}/api/festival/${id}/`, config)
+    .then(response => console.log(response.data))
     .catch(errormsg => console.log(errormsg));
 };

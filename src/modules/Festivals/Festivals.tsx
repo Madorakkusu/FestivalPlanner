@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getFestivals } from '@helpers/OrbitalStation';
 
 import './Festivals.scss';
@@ -35,9 +36,11 @@ class FestivalsClass extends Component<FestivalProps, any> {
         <div className={'festival-list'}>
           {festivals.map(festival => {
             return (
-              <p className={'festival'} key={festival.name}>
-                {festival.name}
-              </p>
+              <Link key={festival.name} to={`/festival/${festival.id}`}>
+                <p className={'festival'} key={festival.name}>
+                  {festival.name}
+                </p>
+              </Link>
             );
           })}
         </div>

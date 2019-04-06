@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { LoginPage } from '@modules/LoginPage';
 import { Festivals } from '@modules/Festivals';
+import { Festival } from '@modules/Festival';
 
 import './App.scss';
 
@@ -16,7 +17,7 @@ export class App extends Component<any, any> {
         <Router>
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/festivals/" component={Festivals} />
-          <Route exact path="/festivals/:id/" component={Festivals} />
+          <Route exact path="/festivals/:id/" component={Festival} />
         </Router>
       </div>
     );
