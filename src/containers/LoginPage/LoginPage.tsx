@@ -1,16 +1,22 @@
 import React, { Component, FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '@helpers/OrbitalStation';
 
-import { OrbitalStation } from '@helpers/OrbitalStation';
+import './LoginPage.scss';
 
-import './LandingPage.scss';
-
-export type LoginState = {
+type LoginState = {
   username: string;
   password: string;
 };
 
-export class LandingPage extends Component<any, LoginState> {
+type DispatchProps = {
+  login: (username: string, password: string) => void;
+};
+
+type LoginPageProps = DispatchProps;
+
+export class LoginPageClass extends Component<LoginPageProps, LoginState> {
   constructor(props) {
     super(props);
 
@@ -24,7 +30,8 @@ export class LandingPage extends Component<any, LoginState> {
 
   loginHandler = () => {
     const { username, password } = this.state;
-    OrbitalStation.login(username, password);
+    const { login } = this.props;
+    login(username, password);
   };
 
   usernameHandler = (e: FormEvent<HTMLInputElement>) => {
@@ -58,10 +65,19 @@ export class LandingPage extends Component<any, LoginState> {
           type={'password'}
           onChange={this.passwordHandler}
         />
-        <button className={'button is-black'} onClick={this.loginHandler}>
+        <button className={'button is-black is-medium'} onClick={this.loginHandler}>
           Login
         </button>
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch: any) => ({
+  login: (username: string, password: string) => dispatch(login(username, password)),
+});
+
+export const LoginPage = connect(
+  null,
+  mapDispatchToProps
+)(LoginPageClass);

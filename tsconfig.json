@@ -25,7 +25,8 @@
     "noEmitOnError": true,
     "paths": {
       "@modules/*": ["./src/modules/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@app/*": ["./src/containers/App/*"]
     }
   },
   "include": [

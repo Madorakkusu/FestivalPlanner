@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { LoginPage } from '../LoginPage';
+
 import './App.scss';
-import { LandingPage } from '../LandingPage';
 
 export class App extends Component<any, any> {
   constructor(props) {
@@ -13,7 +14,7 @@ export class App extends Component<any, any> {
       <div id="app" className="app">
         <BrowserRouter>
           <Switch>
-            <Route component={LandingPage} />
+            <Route component={LoginPage} />
           </Switch>
         </BrowserRouter>
       </div>
