@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getFestivals } from '@helpers/OrbitalStation';
@@ -28,7 +29,13 @@ class FestivalsClass extends Component<FestivalProps, any> {
 
   render() {
     const { festivals } = this.props;
-    if (!festivals) return null;
+    if (!festivals) {
+      return (
+        <div className={'festivalsLoader'}>
+          <Loader type="Bars" color="#FFFFFF" width={50} height={50} />
+        </div>
+      );
+    }
 
     return (
       <div className={'festivalsContainer'}>
