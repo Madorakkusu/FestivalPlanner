@@ -47,14 +47,19 @@ class FestivalContainer extends Component<FestivalProps, any> {
     return (
       <div className={'festivalInfosContainer'}>
         <div className={'headerContainer'}>
-          <Link to={'/festivals'}>
-            <p onClick={this.resetCurrentFestival}>Back</p>
-          </Link>
+          <div className={'headerActions'}>
+            <Link to={'/festivals'}>
+              <p onClick={this.resetCurrentFestival}>
+                <i className="fas fa-angle-left has-text-white is-size-5-mobile" />
+              </p>
+            </Link>
+            <button className={'button'}>Participer</button>
+          </div>
           <h1 className={'title'}>{currentFestival.name}</h1>
         </div>
         <div className={'descriptionContainer'}>
-          <h2 className={'title is-size-5-mobile'}>Description</h2>
-          <p className={'description'}>{currentFestival.description}</p>
+          <h2 className={'title is-size-5-mobile has-text-grey-dark'}>Description</h2>
+          <p className={'description has-text-grey-dark'}>{currentFestival.description}</p>
         </div>
       </div>
     );
