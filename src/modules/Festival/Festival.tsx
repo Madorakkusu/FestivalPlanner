@@ -36,6 +36,7 @@ class FestivalContainer extends Component<FestivalProps, any> {
 
   render() {
     const { currentFestival } = this.props;
+
     if (!currentFestival) {
       return (
         <div className={'AppLoader'}>
@@ -43,6 +44,11 @@ class FestivalContainer extends Component<FestivalProps, any> {
         </div>
       );
     }
+
+    const { name, description, line_up } = currentFestival;
+    const lineupPreview = line_up.slice(0, 3).map(lineup => {
+      return lineup.artist;
+    });
 
     return (
       <div className={'festivalInfosContainer'}>
@@ -55,11 +61,28 @@ class FestivalContainer extends Component<FestivalProps, any> {
             </Link>
             <button className={'button'}>Participer</button>
           </div>
-          <h1 className={'title'}>{currentFestival.name}</h1>
+          <h1 className={'title'}>{name}</h1>
         </div>
         <div className={'descriptionContainer'}>
           <h2 className={'title is-size-5-mobile has-text-grey-dark'}>Description</h2>
-          <p className={'description has-text-grey-dark'}>{currentFestival.description}</p>
+          <p className={'description has-text-grey-dark'}>{description}</p>
+        </div>
+        <div className={'lineupPreviewContainer'}>
+          <div className={'lineupPreviewActions'}>
+            <h2 className={'title is-size-5-mobile has-text-grey-dark'}>Line-up</h2>
+            <Link to={'/festivals'}>
+              <p>
+                <i className="fas fa-angle-right has-text-grey-dark is-size-5-mobile" />
+              </p>
+            </Link>
+          </div>
+          {lineupPreview.map((artist, index) => {
+            return (
+              <div key={`artist${index}`} className={'lineupPreviewItem'}>
+                <h3 className={'is-size-6-mobile has-text-grey-dark'}>{artist.name}</h3>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

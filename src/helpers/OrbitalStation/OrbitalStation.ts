@@ -65,9 +65,6 @@ export const getFestivalById = (id: string, { token }) => (dispatch: ThunkDispat
 
   axios
     .get(`${BASE_URL}/api/festivals/${id}/`, config)
-    .then(response => {
-      console.log(response.data);
-      dispatch(storeCurrentFestival(response.data));
-    })
+    .then(response => dispatch(storeCurrentFestival(response.data)))
     .catch(errormsg => console.log(errormsg));
 };

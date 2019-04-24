@@ -6,7 +6,7 @@
   padding: 0 16px;
   background: #e3effd;
   flex-direction: column;
-  height: auto;
+  height: 100%;
 
   h1 {
     color: $white;
@@ -38,11 +38,15 @@
     background: $white;
     border-radius: 4px;
     margin: 16px 0;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.09);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
 
     .festival-item-name {
       color: $grey-dark;
       text-align: center;
     }
+  }
+
+  .festival-list {
+    overflow: scroll;
   }
 }

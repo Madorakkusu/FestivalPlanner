@@ -4,7 +4,7 @@
 // All the global attributes are in here, be careful of what you put because it will impact all the application
 .app {
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   background-image: linear-gradient(to bottom, #4f64f3, #529df5);
 }
 
@@ -13,4 +13,9 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }

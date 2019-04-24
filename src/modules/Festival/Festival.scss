@@ -7,6 +7,7 @@
   height: 100%;
   margin: 0 -16px;
   background: #e3effd;
+  overflow: scroll;
 
   h1 {
     color: $white;
@@ -28,6 +29,8 @@
     justify-content: center;
     background-image: linear-gradient(to bottom, #4f64f3, #529df5);
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.09);
+    position: sticky;
+    top: 0;
 
     .headerActions {
       display: flex;
@@ -52,6 +55,28 @@
       border: 1px solid $white;
       border-radius: 4px;
       padding: 8px;
+    }
+  }
+
+  .lineupPreviewContainer {
+    padding: 16px;
+
+    .lineupPreviewItem {
+      padding: 16px;
+      background: white;
+      border-radius: 4px;
+      margin: 16px 0;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
+    }
+
+    .lineupPreviewActions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        margin: 0;
+      }
     }
   }
 }
