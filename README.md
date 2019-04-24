@@ -3,6 +3,11 @@
 Festival Planner Application using React with TypeScript / Webpack / Babel
 
 ## Installation
+> Requirements
+
+Dependencies requires at least Node 8.10.0
+
+> Installation
 
 In the folder of the repo execute :
 

@@ -23,7 +23,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
@@ -57,6 +57,9 @@ module.exports = {
                 loader: ['babel-loader', 'ts-loader'],
             },
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),

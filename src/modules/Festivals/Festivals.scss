@@ -1,0 +1,52 @@
+@import 'bulma';
+
+.festivalsContainer {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  background: #e3effd;
+  flex-direction: column;
+  height: auto;
+
+  h1 {
+    color: $white;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  p {
+    color: $white;
+  }
+
+  .titleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 -16px;
+    background-image: linear-gradient(to bottom, #4f64f3, #529df5);
+  }
+
+  .festival-list-item {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: $white;
+    border-radius: 4px;
+    margin: 16px 0;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.09);
+
+    .festival-item-name {
+      color: $grey-dark;
+      text-align: center;
+    }
+  }
+}
+
+.festivalsLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
