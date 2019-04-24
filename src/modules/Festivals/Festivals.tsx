@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { getFestivals } from '@helpers/OrbitalStation';
 
 import './Festivals.scss';
@@ -24,11 +24,17 @@ class FestivalsClass extends Component<FestivalProps, any> {
 
   componentDidMount() {
     const { getFestivals, token } = this.props;
-    getFestivals(token);
+    if (token) {
+      getFestivals(token);
+    }
   }
 
   render() {
-    const { festivals } = this.props;
+    const { festivals, token } = this.props;
+    if (!token) {
+      return <Redirect to="/" />;
+    }
+
     if (!festivals) {
       return (
         <div className={'festivalsLoader'}>
@@ -39,14 +45,18 @@ class FestivalsClass extends Component<FestivalProps, any> {
 
     return (
       <div className={'festivalsContainer'}>
-        <h1 className={'title'}>Festivals</h1>
+        <div className={'titleContainer'}>
+          <h1 className={'title'}>Festivals</h1>
+        </div>
         <div className={'festival-list'}>
           {festivals.map(festival => {
             return (
               <Link key={festival.name} to={`/festival/${festival.id}`}>
-                <p className={'festival'} key={festival.name}>
-                  {festival.name}
-                </p>
+                <div className={'festival-list-item'}>
+                  <p className={'festival-item-name has-text-weight-semibold is-size-5-mobile'} key={festival.name}>
+                    {festival.name}
+                  </p>
+                </div>
               </Link>
             );
           })}

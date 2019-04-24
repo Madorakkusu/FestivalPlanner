@@ -59,7 +59,7 @@ class LoginPageClass extends Component<LoginPageProps, LoginState> {
 
     return (
       <div className={'loginPage'}>
-        <h1 className={'title'}>Festival Planner</h1>
+        <h1 className={'title is-size-2-mobile'}>Festival Planner</h1>
         <input
           className={'input is-medium'}
           name={'username'}
@@ -73,7 +73,7 @@ class LoginPageClass extends Component<LoginPageProps, LoginState> {
           type={'password'}
           onChange={this.passwordHandler}
         />
-        <button className={'button is-black is-medium'} onClick={this.loginHandler}>
+        <button className={'loginPage-button button is-medium'} onClick={this.loginHandler}>
           Login
         </button>
       </div>
