@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { ThunkDispatch } from 'redux-thunk';
 import { AXIOS_LOGIN_CONFIG, BASE_URL } from '@helpers/OrbitalStation';
-import { saveToken } from '@modules/LoginPage/redux/actions';
-import { storeFestivals } from '@modules/Festivals/redux/actions';
+import { saveToken } from '@modules/LoginPage';
+import { storeActualFestivalId, storeFestivals } from '@modules/Festivals';
+import { resetCurrentFestival, storeCurrentFestival } from '@modules/Festival';
 
 /**
  * Login function to get the API Token
@@ -38,7 +39,24 @@ export const getFestivals = ({ token }) => (dispatch: ThunkDispatch<any, any, an
     .catch(errormsg => console.log(errormsg));
 };
 
-export const gesFestivalById = (id: number, token) => (dispatch: ThunkDispatch<any, any, any>) => {
+/**
+ * Store current festival ID
+ * @param id string
+ */
+export const storeCurrentFestivalId = (id: string) => (dispatch: ThunkDispatch<any, any, any>) => {
+  dispatch(storeActualFestivalId(id));
+};
+
+export const resetFestival = () => (dispatch: ThunkDispatch<any, any, any>) => {
+  dispatch(resetCurrentFestival());
+};
+
+/**
+ * Get festival by ID
+ * @param id string
+ * @param token string
+ */
+export const getFestivalById = (id: string, { token }) => (dispatch: ThunkDispatch<any, any, any>) => {
   const config = {
     headers: {
       Authorization: `Token ${token}`,
@@ -46,7 +64,10 @@ export const gesFestivalById = (id: number, token) => (dispatch: ThunkDispatch<a
   };
 
   axios
-    .get(`${BASE_URL}/api/festival/${id}/`, config)
-    .then(response => console.log(response.data))
+    .get(`${BASE_URL}/api/festivals/${id}/`, config)
+    .then(response => {
+      console.log(response.data);
+      dispatch(storeCurrentFestival(response.data));
+    })
     .catch(errormsg => console.log(errormsg));
 };

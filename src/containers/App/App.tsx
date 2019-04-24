@@ -18,6 +18,8 @@ export class App extends Component<any, any> {
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/festivals/" component={Festivals} />
           <Route exact path="/festivals/:id/" component={Festival} />
+          <Route exact path="/festivals/:id/artists" />
+          <Route exact path="/festivals/:id/timetable" />
         </Router>
       </div>
     );

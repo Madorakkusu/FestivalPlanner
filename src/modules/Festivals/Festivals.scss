@@ -24,6 +24,8 @@
     align-items: center;
     margin: 0 -16px;
     background-image: linear-gradient(to bottom, #4f64f3, #529df5);
+    top: 0;
+    position: sticky;
   }
 
   .festival-list-item {
@@ -42,11 +44,4 @@
       text-align: center;
     }
   }
-}
-
-.festivalsLoader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }

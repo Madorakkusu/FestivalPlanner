@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { getFestivals } from '@helpers/OrbitalStation';
+import { getFestivals, storeCurrentFestivalId } from '@helpers/OrbitalStation';
 
 import './Festivals.scss';
 
 type DispatchProps = {
   getFestivals: (token: string) => void;
+  storeCurrentFestivalId: (id: string) => void;
 };
 
 type StateProps = {
@@ -15,9 +16,9 @@ type StateProps = {
   festivals: any;
 };
 
-type FestivalProps = DispatchProps & StateProps;
+type FestivalsProps = DispatchProps & StateProps;
 
-class FestivalsClass extends Component<FestivalProps, any> {
+class FestivalsClass extends Component<FestivalsProps, any> {
   constructor(props) {
     super(props);
   }
@@ -29,6 +30,11 @@ class FestivalsClass extends Component<FestivalProps, any> {
     }
   }
 
+  goToFestival = (id: string) => {
+    const { storeCurrentFestivalId } = this.props;
+    storeCurrentFestivalId(id);
+  };
+
   render() {
     const { festivals, token } = this.props;
     if (!token) {
@@ -37,7 +43,7 @@ class FestivalsClass extends Component<FestivalProps, any> {
 
     if (!festivals) {
       return (
-        <div className={'festivalsLoader'}>
+        <div className={'AppLoader'}>
           <Loader type="Bars" color="#FFFFFF" width={50} height={50} />
         </div>
       );
@@ -51,7 +57,7 @@ class FestivalsClass extends Component<FestivalProps, any> {
         <div className={'festival-list'}>
           {festivals.map(festival => {
             return (
-              <Link key={festival.name} to={`/festival/${festival.id}`}>
+              <Link key={festival.name} to={`/festivals/${festival.id}`} onClick={() => this.goToFestival(festival.id)}>
                 <div className={'festival-list-item'}>
                   <p className={'festival-item-name has-text-weight-semibold is-size-5-mobile'} key={festival.name}>
                     {festival.name}
@@ -73,6 +79,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   getFestivals: (token: any) => dispatch(getFestivals(token)),
+  storeCurrentFestivalId: (id: string) => dispatch(storeCurrentFestivalId(id)),
 });
 
 export const Festivals = connect(

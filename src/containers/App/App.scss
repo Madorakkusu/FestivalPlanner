@@ -6,3 +6,10 @@
   height: 100vh;
   background-image: linear-gradient(to bottom, #4f64f3, #529df5);
 }
+
+.AppLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
