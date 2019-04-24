@@ -1,3 +1,8 @@
-h1 {
-  color: blue;
+@import 'reset-css'; // Reset CSS import, may show error on your IDE
+@import 'bulma'; // Bulma CSS, https://bulma.io/
+
+// All the global attributes are in here, be careful of what you put because it will impact all the application
+.app {
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #4f64f3, #529df5);
 }

@@ -1,0 +1,27 @@
+@import 'bulma';
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  padding: 0 16px;
+  background-image: linear-gradient(to bottom, #4f64f3, #529df5);
+
+  input {
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    color: $white;
+  }
+
+  .loginPage-button {
+    width: 100px;
+    color: $grey-dark;
+    border: none;
+    background: $white;
+  }
+}
